@@ -1,0 +1,22 @@
+name: Share your integration / 分享使用案例
+description: Show a real integration with reproducible details and public materials.
+title: "[Showcase] "
+body:
+  - type: input
+    id: project
+    attributes:
+      label: Project or article URL / 项目或文章链接
+  - type: textarea
+    id: workflow
+    attributes:
+      label: What did you build? / 做出了什么？
+      description: Include the model, safe parameters, runtime and repository commit. Clearly distinguish dry-run from live generation.
+    validations:
+      required: true
+  - type: textarea
+    id: results
+    attributes:
+      label: Results and limitations / 结果与局限
+      description: Share only images you may publish. Remove credentials, private information and signed URLs. Describe failures too.
+    validations:
+      required: true

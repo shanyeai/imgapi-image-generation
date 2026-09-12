@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: imgAPI documentation / 接入文档
+    url: https://imgapi.vip/api-docs
+    about: Current API parameters and service documentation.

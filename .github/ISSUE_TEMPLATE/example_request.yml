@@ -1,0 +1,18 @@
+name: Example request / 想要的示例
+description: Tell us the application you are building and the missing integration example.
+title: "[Example] "
+body:
+  - type: textarea
+    id: usecase
+    attributes:
+      label: What are you building? / 你在做什么应用？
+      description: Describe the user workflow, runtime and the step you need help with.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: What should the example demonstrate? / 怎样算跑通？
+      description: Use sample inputs only. No credentials or customer data.
+    validations:
+      required: true

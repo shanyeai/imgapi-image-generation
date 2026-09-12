@@ -1,0 +1,9 @@
+{
+  "model": "gpt-image-2",
+  "prompt": "一只戴着墨镜的柴犬坐在沙滩上喝可乐，赛博朋克风格",
+  "aspectRatio": "1:1",
+  "quality": "auto",
+  "resolution": "1K",
+  "urls": [],
+  "files": []
+}

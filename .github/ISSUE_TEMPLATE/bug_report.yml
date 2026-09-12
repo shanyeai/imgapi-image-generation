@@ -1,0 +1,37 @@
+name: Bug report / 接入问题
+description: Report a reproducible client or example problem without credentials.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: "Do not include CardKeys, cookies, private images, signed URLs or raw error objects. 请先脱敏。"
+  - type: input
+    id: environment
+    attributes:
+      label: Runtime and commit / 环境与版本
+      placeholder: "Windows, Node 22, commit abc1234"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce / 复现步骤
+      description: Include the command and safe request fields, with credentials removed.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Expected and actual behavior / 预期与实际结果
+    validations:
+      required: true
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Failure stage / 失败阶段
+      options:
+        - Dry-run or validation
+        - Submission
+        - Polling or recovery
+        - Result handling
+        - Other
