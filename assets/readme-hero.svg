@@ -2,8 +2,8 @@
 <title id="title">imgAPI Image Generation</title><desc id="desc">Node.js and Python examples with reference images and task recovery. Illustration of an offline request preview. imgapi.vip.</desc>
 <rect x="1" y="1" width="1278" height="438" rx="22" fill="#f8f8fb" stroke="#e2e2ea"/>
 <g font-family="Arial, Helvetica, sans-serif" fill="#24212f"><svg x="60" y="32" width="52" height="52" viewBox="0 0 116 116">
-  
-  
+
+
   <defs>
     <linearGradient id="imgapi-purple" x1="4" y1="104" x2="106" y2="4" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#6554ED"/>
