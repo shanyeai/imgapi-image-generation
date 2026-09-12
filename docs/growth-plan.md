@@ -48,3 +48,19 @@ GitHub 社交预览图可作为下一项素材：建议以真实演示画面为�
 - 本计划不创建后台监控、不发送消息、不购买推广、不自动消耗生图积分。
 
 2026-09-12：仓库名称调整为 `imgapi-image-generation`，中英文首页使用品牌横幅与手机适配图，统一导航、运行环境和测试徽章；克隆命令、文档及反馈入口同步新名称。README 横幅不代表已设置 GitHub 社交预览图。
+
+## 首页对照与 SEO 调整（2026-09-12）
+
+用户明确优先搜索可发现性，其次是真实接入，介绍须简洁。Star 为本次 GitHub API 读取快照，不是效果归因。
+
+| 参考仓库 | Star 快照 | 吸收的做法 |
+| --- | ---: | --- |
+| [Open WebUI](https://github.com/open-webui/open-webui) | 151,697 | 简介直接说明用途和支持范围，提供清楚的安装路径 |
+| [Vercel AI SDK](https://github.com/vercel/ai) | 26,699 | 介绍之后进入安装与代码，按开发任务组织示例 |
+| [Replicate Node.js](https://github.com/replicate/replicate-javascript) | 598 | 作为用途相近的 API 客户端参考，明确凭据与输入输出 |
+
+本轮把横幅缩小，删除重复宣传句和首屏次要入口；将 Key 配置和真实调用提前，场景表直达 JSON。标题与正文自然包含 AI 生图 API、GPT Image 2、GPT Image 2.5、Nano Banana、Node.js、Python；补齐模型 ID 表和参考图请求示例。CLI、鉴权与计费行为保持原有契约。
+
+GitHub 允许按名称、描述、README 内容、Topics 搜索仓库，依据：[官方仓库搜索说明](https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories)。这次优化的是这些可控制的内容；GitHub 页面 meta、搜索引擎抓取与排名不由本仓库直接控制。不添加无效的 README meta 标签、关键词堆叠或虚假的部署入口，不把排版变化写成已获得 SEO 流量。
+
+验收以桌面/手机真实渲染、两种语言导航、文案与链接检查、参考图 multipart 离线流程为准；付费出图、流量增长与搜索排名需要后续独立证据。此前创作者材料仍保留在文档层，主首页优先服务准备接入的开发者。

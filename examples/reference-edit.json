@@ -1,0 +1,9 @@
+{
+  "model": "gpt-image-2",
+  "prompt": "以参考图中的主体为基础，保留主体的形状、颜色和关键细节。将背景改为干净的浅灰色摄影棚，使用柔和自然的侧光和接触阴影。主体居中，不添加品牌、文字、水印或其他物体。",
+  "aspectRatio": "1:1",
+  "quality": "auto",
+  "resolution": "1K",
+  "urls": [],
+  "files": ["./reference.png"]
+}

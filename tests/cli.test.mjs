@@ -39,6 +39,35 @@ test('default request resolves outside repository; help makes no network call', 
   assert.equal(cli(['--help']).status, 0);
 });
 
+test('reference recipe works through the actual CLI with a local file', () => {
+  const directory = mkdtempSync(join(tmpdir(), 'imgapi-reference-'));
+  try {
+    const preview = cli(['--dry-run', '--request', 'examples/reference-edit.json']);
+    assert.equal(preview.status, 0, preview.stderr);
+    assert.equal(JSON.parse(preview.stdout).contentType, 'multipart/form-data');
+    const imageBytes = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aB9sAAAAASUVORK5CYII=', 'base64');
+    writeFileSync(join(directory, 'reference.png'), imageBytes);
+    const result = spawnSync(process.execPath, ['--input-type=module', '-e', `
+      import assert from 'node:assert/strict';
+      process.argv = ['node', ${JSON.stringify(fileURLToPath(run))}, '--request', ${JSON.stringify(join(root, 'examples/reference-edit.json'))}];
+      let calls = 0;
+      globalThis.fetch = async (url, init) => {
+        calls++;
+        assert.ok(url.endsWith('/draw/Async'));
+        assert.ok(init.body instanceof FormData);
+        assert.equal(init.body.get('files').name, 'reference.png');
+        assert.equal(init.body.get('files').size, ${imageBytes.length});
+        assert.equal(init.body.get('model'), 'gpt-image-2');
+        return new Response(JSON.stringify({code:200,status:'succeeded',image:'https://example.com/reference-result.png'}));
+      };
+      await import(${JSON.stringify(run.href)});
+      assert.equal(calls, 1);
+    `], { cwd: directory, encoding: 'utf8', env: { ...process.env, IMGAPI_CARD_KEY: '0123456789abcdef' }, timeout: 10000 });
+    assert.equal(result.status, 0, result.stderr);
+    assert.match(result.stdout, /reference-result.png/);
+  } finally { rmSync(directory, { recursive: true, force: true }); }
+});
+
 test('ambiguous or unknown CLI flags are rejected before networking', () => {
   for (const args of [['--query', 'task', '--dry-run'], ['--query', 'task', '--request', 'x'], ['--query', ''], ['--unknown']]) {
     const result = cli(args);

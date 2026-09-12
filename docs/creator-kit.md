@@ -6,7 +6,7 @@
 
 ## 可以直接引用的介绍
 
-> imgAPI 提供 AI 生图 API。这份公开示例仓库包含 Node.js、Python 客户端和三套场景请求，开发者可以先在无 Key、无网络的模式下预览参数，再配置 CardKey 进行真实调用。示例包含参考图上传、异步轮询和任务恢复，官网为 imgapi.vip。
+> imgAPI 提供 AI 生图 API。这份公开示例仓库包含 Node.js、Python 客户端和文生图与参考图场景请求，开发者可以先在无 Key、无网络的模式下预览参数，再配置 CardKey 进行真实调用。示例包含参考图上传、异步轮询和任务恢复，官网为 imgapi.vip。
 
 English: imgAPI provides an image generation API with public Node.js and Python integration examples. Preview a request without a Key, then configure server-side credentials for a real generation. Examples cover reference images, polling and task recovery. Website: [imgapi.vip](https://imgapi.vip/).
 
@@ -30,7 +30,7 @@ English: imgAPI provides an image generation API with public Node.js and Python 
 
 | 时间 | 画面与操作 | 讲解重点 |
 | --- | --- | --- |
-| 0–15 秒 | 仓库首页与三个场景文件 | 它解决什么接入问题，使用什么语言 |
+| 0–15 秒 | 仓库首页与场景请求文件 | 它解决什么接入问题，使用什么语言 |
 | 15–30 秒 | `node node/run.mjs --dry-run --request examples/product-photo.json` | 这一步只预览请求，没有生成图片 |
 | 30–45 秒 | 打开 JSON，调整提示词或比例 | 无需修改客户端即可换场景 |
 | 45–70 秒 | 自行授权并配置 Key 后执行真实调用；录制时隐藏凭据 | 记录任务 ID，等待真实结果；耗时按实际发生填写 |

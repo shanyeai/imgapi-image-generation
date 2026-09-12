@@ -1,4 +1,5 @@
 import contextlib
+import base64
 import io
 import json
 import os
@@ -42,6 +43,35 @@ class CliTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             self.assertEqual(self.cli("--dry-run", cwd=directory).returncode, 0)
         self.assertEqual(self.cli("--help").returncode, 0)
+
+    def test_reference_recipe_through_entrypoint(self):
+        preview = self.cli("--dry-run", "--request", "examples/reference-edit.json")
+        self.assertEqual(preview.returncode, 0, preview.stderr)
+        self.assertEqual(json.loads(preview.stdout)["contentType"], "multipart/form-data")
+        image_bytes = base64.b64decode("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aB9sAAAAASUVORK5CYII=")
+        calls = []
+        def respond(request):
+            calls.append(request)
+            self.assertTrue(str(request.url).endswith("/draw/Async"))
+            self.assertIn('multipart/form-data', request.headers['Content-Type'])
+            self.assertIn(b'filename="reference.png"', request.content)
+            self.assertIn(image_bytes, request.content)
+            return httpx.Response(200, json={"code": 200, "status": "succeeded", "image": "https://example.com/reference-result.png"})
+        original = imgapi.ImgApiClient
+        with httpx.Client(transport=httpx.MockTransport(respond)) as http:
+            with patch.object(imgapi, "ImgApiClient", side_effect=lambda: original(card_key="0123456789abcdef", http_client=http)):
+                with tempfile.TemporaryDirectory() as directory:
+                    previous = Path.cwd()
+                    try:
+                        os.chdir(directory)
+                        Path("reference.png").write_bytes(image_bytes)
+                        output = io.StringIO()
+                        with patch.object(sys, "argv", ["run.py", "--request", str(ROOT / "examples/reference-edit.json")]), contextlib.redirect_stdout(output), contextlib.redirect_stderr(io.StringIO()):
+                            run.main()
+                        self.assertEqual(len(calls), 1)
+                        self.assertIn("reference-result.png", output.getvalue())
+                    finally:
+                        os.chdir(previous)
 
     def test_invalid_combinations(self):
         for args in (("--query", "x", "--dry-run"), ("--query", "x", "--request", "x"), ("--query", ""), ("--unknown",)):
