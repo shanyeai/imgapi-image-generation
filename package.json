@@ -1,0 +1,7 @@
+{
+  "name": "imgapi-examples",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node --test tests/node.test.mjs", "generate": "node node/run.mjs" },
+  "engines": { "node": ">=22" }
+}
