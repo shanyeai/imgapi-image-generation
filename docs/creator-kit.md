@@ -1,6 +1,6 @@
 # imgAPI 创作者资料包
 
-[仓库](https://github.com/shanye1402-hash/imgapi-image-generation) · [官网 imgapi.vip](https://imgapi.vip/) · [接入文档](https://imgapi.vip/api-docs)
+[仓库](https://github.com/shanyeai/imgapi-image-generation) · [官网 imgapi.vip](https://imgapi.vip/) · [接入文档](https://imgapi.vip/api-docs)
 
 供技术博主、开发者社区和教程作者准备演示使用。这里提供可核对的代码入口与录制流程，尚未提供真实付费生成的成片、耗时或成功率测试。
 
@@ -49,10 +49,10 @@ English: imgAPI provides an image generation API with public Node.js and Python 
 
 > 整理了一份 imgAPI 生图 API 对接示例：Node.js 和 Python 都可以用同一份 JSON 请求，先预览参数，再配置 Key 生成图片。里面还包括参考图上传、任务 ID 保存和中断后继续查询。想给商品图工具或内容工作台接入生图，可以从这里开始：
 >
-> [GitHub 仓库](https://github.com/shanye1402-hash/imgapi-image-generation) · [imgAPI 官网](https://imgapi.vip/)
+> [GitHub 仓库](https://github.com/shanyeai/imgapi-image-generation) · [imgAPI 官网](https://imgapi.vip/)
 
 这段是介绍草稿，不包含“亲测稳定”“免费生图”等未验证声明。收到赞助、赠送积分或其他合作支持时，按实际情况说明。仓库不承诺合作费用、免费额度或宣传效果。
 
 ## 素材与合作入口
 
-目前可引用的素材是仓库说明、运行命令和自己的真实演示。新的场景可通过 [场景请求](https://github.com/shanye1402-hash/imgapi-image-generation/issues/new?template=example_request.yml) 提出，完成接入后可通过 [使用案例](https://github.com/shanye1402-hash/imgapi-image-generation/issues/new?template=showcase.yml) 分享。私人合作条款与凭据不要发到公开 Issue。
+目前可引用的素材是仓库说明、运行命令和自己的真实演示。新的场景可通过 [场景请求](https://github.com/shanyeai/imgapi-image-generation/issues/new?template=example_request.yml) 提出，完成接入后可通过 [使用案例](https://github.com/shanyeai/imgapi-image-generation/issues/new?template=showcase.yml) 分享。私人合作条款与凭据不要发到公开 Issue。

@@ -11,14 +11,14 @@
 
 [Get an API Key](https://imgapi.vip/) · [API docs & pricing](https://imgapi.vip/api-docs) · [Quickstart](#quickstart) · [简体中文](README.md)
 
-[![Offline tests](https://github.com/shanye1402-hash/imgapi-image-generation/actions/workflows/test.yml/badge.svg)](https://github.com/shanye1402-hash/imgapi-image-generation/actions/workflows/test.yml)
+[![Offline tests](https://github.com/shanyeai/imgapi-image-generation/actions/workflows/test.yml/badge.svg)](https://github.com/shanyeai/imgapi-image-generation/actions/workflows/test.yml)
 
 ## Quickstart
 
 Requires Node.js 22+ or Python 3.10+. Choose either runtime.
 
 ```bash
-git clone https://github.com/shanye1402-hash/imgapi-image-generation.git
+git clone https://github.com/shanyeai/imgapi-image-generation.git
 cd imgapi-image-generation
 ```
 
@@ -85,6 +85,6 @@ Resume an existing task with `node node/run.mjs --query YOUR_TASK_ID` or `python
 
 Import [`createImgApiClient`](node/imgapi.mjs) or [`ImgApiClient`](python/imgapi.py) into an existing application; see the [integration guide](docs/integration.md). This API uses its own JSON protocol, not a drop-in OpenAI SDK base URL.
 
-[Troubleshooting](docs/troubleshooting.md) · [Issues](https://github.com/shanye1402-hash/imgapi-image-generation/issues) · [Contributing & offline tests](CONTRIBUTING.md) · [Creator kit](docs/creator-kit.md)
+[Troubleshooting](docs/troubleshooting.md) · [Issues](https://github.com/shanyeai/imgapi-image-generation/issues) · [Contributing & offline tests](CONTRIBUTING.md) · [Creator kit](docs/creator-kit.md)
 
 No open-source license has been granted; contact the maintainer for reuse permissions where required. CI validates offline examples, not live image quality or service uptime.

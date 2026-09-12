@@ -11,14 +11,14 @@ GPT Image 2、GPT Image 2.5、Nano Banana 的 **Node.js / Python 调用示例**�
 
 [获取 API Key](https://imgapi.vip/) · [API 文档与价格](https://imgapi.vip/api-docs) · [运行示例](#快速开始) · [English](README.en.md)
 
-[![Offline tests](https://github.com/shanye1402-hash/imgapi-image-generation/actions/workflows/test.yml/badge.svg)](https://github.com/shanye1402-hash/imgapi-image-generation/actions/workflows/test.yml)
+[![Offline tests](https://github.com/shanyeai/imgapi-image-generation/actions/workflows/test.yml/badge.svg)](https://github.com/shanyeai/imgapi-image-generation/actions/workflows/test.yml)
 
 ## 快速开始
 
 需要 Node.js 22+ 或 Python 3.10+，任选一种。
 
 ```bash
-git clone https://github.com/shanye1402-hash/imgapi-image-generation.git
+git clone https://github.com/shanyeai/imgapi-image-generation.git
 cd imgapi-image-generation
 ```
 
@@ -85,6 +85,6 @@ python python/run.py --request examples/quickstart.json
 
 已有应用可导入 [`createImgApiClient`](node/imgapi.mjs) 或 [`ImgApiClient`](python/imgapi.py)。完整写法见 [Node.js / Python 接入指南](docs/integration.md)。此接口使用自己的 JSON 协议，不能仅替换 OpenAI SDK 的 base URL。
 
-[排错](docs/troubleshooting.md) · [反馈问题](https://github.com/shanye1402-hash/imgapi-image-generation/issues) · [贡献与离线测试](CONTRIBUTING.md) · [教程作者资料](docs/creator-kit.md)
+[排错](docs/troubleshooting.md) · [反馈问题](https://github.com/shanyeai/imgapi-image-generation/issues) · [贡献与离线测试](CONTRIBUTING.md) · [教程作者资料](docs/creator-kit.md)
 
 仓库暂未添加开源许可证；需要复用授权时请联系维护者。CI 只验证离线示例，不代表线上生成效果或可用率。
