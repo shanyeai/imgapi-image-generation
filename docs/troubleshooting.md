@@ -17,6 +17,6 @@
 | 查询突然不能解析响应 | 模型或接口响应可能变化 | 提交脱敏后的最小复现和运行环境，不公开完整原始响应 |
 | API 返回 404 | Base URL 是否缺少 `/prod-api` | 使用 `https://imgapi.vip/prod-api` 和文档中的原路径 |
 
-获取帮助：[提交 Bug](https://github.com/shanye1402-hash/imgapi-examples/issues/new?template=bug_report.yml)。不要在公开 Issue 中粘贴 CardKey、Cookie、私人图片、带签名的下载链接或完整错误对象。
+获取帮助：[提交 Bug](https://github.com/shanye1402-hash/imgapi-image-generation/issues/new?template=bug_report.yml)。不要在公开 Issue 中粘贴 CardKey、Cookie、私人图片、带签名的下载链接或完整错误对象。
 
 For English reports, include your OS, Node/Python version, repository commit, the command with secrets removed, and whether the failure happened before submission, during polling, or after success. A dry-run is not a live generation test. Use `--query TASK_ID` to resume; do not rerun a submission after an uncertain outcome.

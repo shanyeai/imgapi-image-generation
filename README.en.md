@@ -1,20 +1,35 @@
-# imgAPI · AI Image Generation API Examples
+<p align="center">
+  <a href="https://imgapi.vip/">
+    <picture>
+      <source media="(max-width: 600px)" srcset="assets/readme-hero-mobile.svg">
+      <img src="assets/readme-hero.svg" alt="imgAPI Image Generation — Node.js / Python examples, reference images and task recovery" width="1280">
+    </picture>
+  </a>
+</p>
 
-**Connect image generation to your application with Node.js or Python. Includes reference images, asynchronous polling and task recovery.**
+<h1 align="center">imgAPI Image Generation</h1>
+<p align="center"><strong>Build image generation into your app.</strong><br>Node.js &amp; Python examples · Reference images · Async polling · Task recovery</p>
 
-[简体中文](README.md) · [imgapi.vip](https://imgapi.vip/) · [API documentation](https://imgapi.vip/api-docs) · [Recipes](examples/README.md) · [Creator kit](docs/creator-kit.md)
+<p align="center">
+  <a href="https://github.com/shanye1402-hash/imgapi-image-generation/actions/workflows/test.yml"><img src="https://github.com/shanye1402-hash/imgapi-image-generation/actions/workflows/test.yml/badge.svg" alt="Offline tests"></a>
+  <img src="assets/runtime-badges.svg" alt="Node.js 22+ / Python 3.10+" width="244" height="22">
+</p>
 
-[![Offline tests](https://github.com/shanye1402-hash/imgapi-examples/actions/workflows/test.yml/badge.svg)](https://github.com/shanye1402-hash/imgapi-examples/actions/workflows/test.yml)
+<p align="center"><a href="#try-a-request-preview-without-a-key">Quickstart</a> · <a href="docs/integration.md">Integration</a> · <a href="examples/README.md">Recipes</a> · <a href="docs/creator-kit.md">Creator kit</a> · <a href="README.md">简体中文</a><br><a href="https://imgapi.vip/">imgAPI website</a> · <a href="https://imgapi.vip/api-docs">API docs</a> · <a href="https://github.com/shanye1402-hash/imgapi-image-generation/issues">Get help</a></p>
 
-Use these examples for product image concepts, article cover backgrounds or server-side image generation. The default model is `gpt-image-2`. Client options also include GPT Image 2.5, Nano Banana 2 and Nano Banana Pro; check the service documentation for current availability and pricing.
+---
+
+> **Start without a Key** — Run `npm run demo` to preview a request. Real generation requires a CardKey and uses credits under the service billing rules.
+
+For product image tools, content workflows and AI applications. The default model is `gpt-image-2`; see the [service documentation](https://imgapi.vip/api-docs) for current model availability and pricing.
 
 ## Try a request preview without a Key
 
 Requires Node.js 22+ or Python 3.10+.
 
 ```bash
-git clone https://github.com/shanye1402-hash/imgapi-examples.git
-cd imgapi-examples
+git clone https://github.com/shanye1402-hash/imgapi-image-generation.git
+cd imgapi-image-generation
 node node/run.mjs --dry-run
 # Or: python python/run.py --dry-run
 ```
@@ -86,7 +101,7 @@ The API base is `https://imgapi.vip/prod-api`. Submit with `POST /tool/imgapi/dr
 - [Integration guide](docs/integration.md): imports, parameters and application boundaries.
 - [Troubleshooting](docs/troubleshooting.md): credentials, errors and task recovery.
 - [Contributing](CONTRIBUTING.md): bug reports and new recipes.
-- [Issues](https://github.com/shanye1402-hash/imgapi-examples/issues): report a reproducible problem or share an integration.
+- [Issues](https://github.com/shanye1402-hash/imgapi-image-generation/issues): report a reproducible problem or share an integration.
 
 ```bash
 npm test

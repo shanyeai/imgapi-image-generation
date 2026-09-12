@@ -1,5 +1,5 @@
 {
-  "name": "imgapi-examples",
+  "name": "imgapi-image-generation",
   "private": true,
   "type": "module",
   "scripts": {
