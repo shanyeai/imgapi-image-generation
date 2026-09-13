@@ -125,4 +125,8 @@ Import [`createImgApiClient`](node/imgapi.mjs) or [`ImgApiClient`](python/imgapi
 
 [Troubleshooting](docs/troubleshooting.md) · [Issues](https://github.com/shanyeai/imgapi-image-generation/issues) · [Contributing & offline tests](CONTRIBUTING.md) · [Creator kit](docs/creator-kit.md)
 
-No open-source license has been granted; contact the maintainer for reuse permissions where required. CI validates offline examples, not live image quality or service uptime.
+## License
+
+The code and documentation in this repository are available under the [MIT License](LICENSE), including modification, integration and commercial use subject to its notice requirements. The imgAPI hosted service remains subject to its service and billing terms.
+
+CI validates offline examples, not live image quality or service uptime.

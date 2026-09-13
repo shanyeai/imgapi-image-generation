@@ -14,6 +14,6 @@ python -m unittest discover -s tests -p "test_*.py"
 
 客户端由 imgAPI 文档提取；接口契约变化时请提供文档依据。不要为处理超时加入自动重复提交，不更改生产端点来绕过错误，也不要把大规模框架或额外服务作为运行基础示例的前提。
 
-此仓库暂未添加开源许可证。涉及代码再分发或授权贡献时，请先与维护者明确许可范围。
+本仓库采用 [MIT License](LICENSE)。提交贡献前，请确认你有权提供相关代码和材料，并同意其按本仓库的 MIT 许可证分发；不要提交未获授权的第三方代码、图片或数据。
 
-English reports and pull requests are welcome. Include the runtime version, repository commit, a minimal reproduction and offline test results. Never share credentials or private image URLs. Keep paid generation out of tests and preserve the submit-once behavior. No open-source license has been granted; clarify permissions with the maintainer where required.
+English reports and pull requests are welcome. Include the runtime version, repository commit, a minimal reproduction and offline test results. Never share credentials or private image URLs. Keep paid generation out of tests and preserve the submit-once behavior. Contributions must be yours to provide and available under this repository's MIT License.

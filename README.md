@@ -125,4 +125,8 @@ node node/run.mjs --query (Get-Content -LiteralPath 'task-id.txt' -Raw).Trim()
 
 [排错](docs/troubleshooting.md) · [反馈问题](https://github.com/shanyeai/imgapi-image-generation/issues) · [贡献与离线测试](CONTRIBUTING.md) · [教程作者资料](docs/creator-kit.md)
 
-仓库暂未添加开源许可证；需要复用授权时请联系维护者。CI 只验证离线示例，不代表线上生成效果或可用率。
+## 许可证
+
+本仓库代码与文档采用 [MIT License](LICENSE)，允许修改、集成和商用，需按许可证保留版权及许可声明。imgAPI 在线服务的使用与计费仍遵循服务规则。
+
+CI 只验证离线示例，不代表线上生成效果或可用率。

@@ -10,7 +10,7 @@
 
 English: imgAPI provides an image generation API with public Node.js and Python integration examples. Preview a request without a Key, then configure server-side credentials for a real generation. Examples cover reference images, polling and task recovery. Website: [imgapi.vip](https://imgapi.vip/).
 
-仓库暂未添加开源许可证。介绍时使用“公开示例仓库”；不要称为“可自由商用的开源 SDK”。
+仓库代码与文档采用 [MIT License](../LICENSE)，可称为“MIT 开源接入示例”。复用时按许可证保留声明；在线 API 的调用仍遵循服务规则与计费，不因示例开源而免费。
 
 ## 推荐的三个内容角度
 
