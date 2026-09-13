@@ -55,4 +55,6 @@ English: imgAPI provides an image generation API with public Node.js and Python 
 
 ## 素材与合作入口
 
+准备静态图文时，可展示[实际离线预览输出](request-preview.md)，或截取仓库快速开始。图注写明“请求预览，未生成图片”；不要把仓库横幅或请求 JSON 当作生图效果展示。下载结果的 macOS/Linux 与 PowerShell 命令见[快速开始](../README.md#快速开始)。
+
 目前可引用的素材是仓库说明、运行命令和自己的真实演示。新的场景可通过 [场景请求](https://github.com/shanyeai/imgapi-image-generation/issues/new?template=example_request.yml) 提出，完成接入后可通过 [使用案例](https://github.com/shanyeai/imgapi-image-generation/issues/new?template=showcase.yml) 分享。私人合作条款与凭据不要发到公开 Issue。

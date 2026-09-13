@@ -22,7 +22,17 @@ git clone https://github.com/shanyeai/imgapi-image-generation.git
 cd imgapi-image-generation
 ```
 
-**1. Set your Key.** Get a CardKey from [imgapi.vip](https://imgapi.vip/) and replace the placeholder.
+**1. Preview a request.** Choose either command. No Key or dependencies are needed, and no image task is submitted.
+
+```bash
+node node/run.mjs --dry-run --request examples/quickstart.json
+# Or Python
+python python/run.py --dry-run --request examples/quickstart.json
+```
+
+The output contains `"mode": "dry-run"`, `"network": false` and the request fields. [See the complete output and verification scope](docs/request-preview.md). Previewing helps inspect your prompt and parameters; it does not validate provider acceptance or generate an image.
+
+**2. Set your Key.** When ready for a real call, get a CardKey from [imgapi.vip](https://imgapi.vip/) and replace the placeholder. The scripts do not load `.env` automatically. Keep your Key in a terminal or server environment.
 
 ```bash
 # macOS / Linux
@@ -38,7 +48,7 @@ $env:IMGAPI_CARD_KEY = 'YOUR_16_HEX_CARD_KEY'
 
 </details>
 
-**2. Generate one image.** The default is GPT Image 2, 1K, 1:1. This submits one real task and uses credits under the service's billing rules.
+**3. Generate one image.** The default is GPT Image 2, 1K, 1:1. This submits one real task and uses credits under the service's billing rules.
 
 ```bash
 # Node.js: no dependencies required
@@ -51,9 +61,25 @@ python -m pip install -r python/requirements.txt
 python python/run.py --request examples/quickstart.json
 ```
 
-On success, the CLI prints the **task ID and image URL**. Asynchronous IDs are saved to `task-id.txt` in your current directory. Download the result yourself before the URL expires.
+On success, the CLI prints the **task ID and image URL**. Asynchronous IDs are saved to `task-id.txt` in your current directory.
 
-To preview a request, add `--dry-run`: no Key, network calls or credits needed. The scripts do not load `.env` automatically. Keep your Key in a terminal or server environment.
+**4. Save the image.** Replace the placeholder below with the complete returned image URL, including any query parameters. Choose an unused filename and save the result before the URL expires. Do not include your CardKey in the download request.
+
+```bash
+# macOS / Linux: quotes protect characters such as & in the URL
+curl --fail --location --output result.png 'PASTE_RETURNED_IMAGE_URL_HERE'
+```
+
+<details>
+<summary>Windows PowerShell</summary>
+
+```powershell
+Invoke-WebRequest -Uri 'PASTE_RETURNED_IMAGE_URL_HERE' -OutFile 'result.png'
+```
+
+</details>
+
+`result.png` is an example filename, not a format conversion. Use an extension matching the actual image format. Do not publish signed download URLs.
 
 ## Choose an example
 
@@ -82,6 +108,18 @@ Edit `model` in the request JSON. See [imgAPI documentation](https://imgapi.vip/
 ## Resume or integrate
 
 Resume an existing task with `node node/run.mjs --query YOUR_TASK_ID` or `python python/run.py --query YOUR_TASK_ID`. If submission is uncertain, check the dashboard before creating another task.
+
+You can also read the saved ID. The file retains only the most recently written ID:
+
+```bash
+# macOS / Linux; use python python/run.py for the Python client
+node node/run.mjs --query "$(cat task-id.txt)"
+```
+
+```powershell
+# Windows PowerShell
+node node/run.mjs --query (Get-Content -LiteralPath 'task-id.txt' -Raw).Trim()
+```
 
 Import [`createImgApiClient`](node/imgapi.mjs) or [`ImgApiClient`](python/imgapi.py) into an existing application; see the [integration guide](docs/integration.md). This API uses its own JSON protocol, not a drop-in OpenAI SDK base URL.
 

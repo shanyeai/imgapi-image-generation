@@ -22,7 +22,17 @@ git clone https://github.com/shanyeai/imgapi-image-generation.git
 cd imgapi-image-generation
 ```
 
-**1. 设置 Key**：在 [imgapi.vip](https://imgapi.vip/) 获取 CardKey，替换下面的占位符。
+**1. 先预览请求**：任选一条运行，无需 Key、无需安装依赖，也不会提交生图任务。
+
+```bash
+node node/run.mjs --dry-run --request examples/quickstart.json
+# 或 Python
+python python/run.py --dry-run --request examples/quickstart.json
+```
+
+终端会输出 `"mode": "dry-run"`、`"network": false` 和请求参数。[查看完整输出及验证范围](docs/request-preview.md)。这一步便于检查提示词和模型参数，模型是否接受参数、能否生成图片仍需真实调用确认。
+
+**2. 设置 Key**：准备真实调用时，在 [imgapi.vip](https://imgapi.vip/) 获取 CardKey，替换下面的占位符。脚本不会自动加载 `.env`；Key 只放在终端或服务端环境中。
 
 ```bash
 # macOS / Linux
@@ -38,7 +48,7 @@ $env:IMGAPI_CARD_KEY = 'YOUR_16_HEX_CARD_KEY'
 
 </details>
 
-**2. 运行一次生图**：默认使用 GPT Image 2、1K、1:1，按服务规则消耗积分。
+**3. 运行一次生图**：默认使用 GPT Image 2、1K、1:1，按服务规则消耗积分。
 
 ```bash
 # Node.js：无需安装依赖
@@ -51,9 +61,25 @@ python -m pip install -r python/requirements.txt
 python python/run.py --request examples/quickstart.json
 ```
 
-成功后输出**任务 ID 和图片 URL**。异步任务 ID 保存到当前目录的 `task-id.txt`；图片需要自行下载保存。
+成功后输出**任务 ID 和图片 URL**。异步任务 ID 保存到当前目录的 `task-id.txt`。
 
-只想查看请求？加上 `--dry-run`，无需 Key、不请求服务器、不消耗积分。脚本不会自动加载 `.env`，Key 只放在终端或服务端环境中。
+**4. 保存图片**：将下面的占位符替换为成功返回的完整图片 URL，保留其查询参数。选一个未使用的文件名；下载链接可能过期，取得结果后及时保存。下载不需要附带 CardKey。
+
+```bash
+# macOS / Linux：单引号保护 URL 中的 & 等字符
+curl --fail --location --output result.png 'PASTE_RETURNED_IMAGE_URL_HERE'
+```
+
+<details>
+<summary>Windows PowerShell</summary>
+
+```powershell
+Invoke-WebRequest -Uri 'PASTE_RETURNED_IMAGE_URL_HERE' -OutFile 'result.png'
+```
+
+</details>
+
+`result.png` 只是示例文件名，下载命令不会转换图片格式；请按实际格式命名。不要公开带签名的下载链接。
 
 ## 选择场景
 
@@ -82,6 +108,18 @@ python python/run.py --request examples/quickstart.json
 ## 任务恢复与项目接入
 
 等待中断后，用原 ID 继续查：`node node/run.mjs --query YOUR_TASK_ID`，或 `python python/run.py --query YOUR_TASK_ID`。提交结果不确定时先核对控制台，避免重复创建任务。
+
+也可读取上次运行保存的任务 ID（文件只保留最近一次写入的 ID）：
+
+```bash
+# macOS / Linux；Python 可替换命令前半段
+node node/run.mjs --query "$(cat task-id.txt)"
+```
+
+```powershell
+# Windows PowerShell
+node node/run.mjs --query (Get-Content -LiteralPath 'task-id.txt' -Raw).Trim()
+```
 
 已有应用可导入 [`createImgApiClient`](node/imgapi.mjs) 或 [`ImgApiClient`](python/imgapi.py)。完整写法见 [Node.js / Python 接入指南](docs/integration.md)。此接口使用自己的 JSON 协议，不能仅替换 OpenAI SDK 的 base URL。
 
